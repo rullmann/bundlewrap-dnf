@@ -1,6 +1,7 @@
 # bundlewrap-yum
 
-`bundlewrap-yum` does something.
+`bundlewrap-yum` installs `yum`, removes unnecessary default repo lists and optionally sets up automatic download and updates of packages.
+Beside that the bundle provides an action to update the yum metadata cache which can be used by other bundles whenever a repo list is being modified.
 
 ## Compatibility
 
