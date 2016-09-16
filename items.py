@@ -44,3 +44,6 @@ if node.metadata.get('yum', {}).get('auto_downloads', False):
             "pkg_yum:yum-cron",
         ],
     }
+
+for package in node.metadata.get('yum', {}).get('extra_packages', {}):
+    pkg_yum['{}'.format(package)] = {}
