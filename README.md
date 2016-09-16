@@ -25,5 +25,6 @@ This bundle has been tested on the following systems:
             'auto_downloads': True, # configure yum-cron and download updates
             'auto_update': True, # if auto_downloads: True, also install updates
             'update_cmd': 'default', # define which updates will be installed, e.g. 'security'
+            'extra_packages': ['git-email'], # optional, installs any given package with yum
         },
     }
