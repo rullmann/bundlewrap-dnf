@@ -3,15 +3,15 @@ pkg_dnf = {
 }
 
 actions = {
-    'yum_makecache': {
-        'command': "yum makecache",
+    'dnf_makecache': {
+        'command': "dnf makecache",
         'triggered': True,
     },
 }
 
 files = {}
 
-if node.metadata.get('yum', {}).get('auto_downloads', False):
+if node.metadata.get('dnf', {}).get('auto_downloads', False):
     pkg_dnf['yum-cron'] = {}
 
     svc_systemd = {
@@ -45,5 +45,5 @@ if node.metadata.get('yum', {}).get('auto_downloads', False):
         ],
     }
 
-for package in node.metadata.get('yum', {}).get('extra_packages', {}):
+for package in node.metadata.get('dnf', {}).get('extra_packages', {}):
     pkg_dnf['{}'.format(package)] = {}
