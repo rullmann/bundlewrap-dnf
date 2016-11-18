@@ -1,4 +1,4 @@
-pkg_yum = {
+pkg_dnf = {
     "yum": {},
 }
 
@@ -12,13 +12,13 @@ actions = {
 files = {}
 
 if node.metadata.get('yum', {}).get('auto_downloads', False):
-    pkg_yum['yum-cron'] = {}
+    pkg_dnf['yum-cron'] = {}
 
     svc_systemd = {
         'yum-cron': {
             'enabled': True,
             'needs': [
-                "pkg_yum:yum-cron",
+                "pkg_dnf:yum-cron",
             ],
         },
     }
@@ -30,7 +30,7 @@ if node.metadata.get('yum', {}).get('auto_downloads', False):
         'group': "root",
         'content_type': "mako",
         'needs': [
-            "pkg_yum:yum-cron",
+            "pkg_dnf:yum-cron",
         ],
     }
 
@@ -41,9 +41,9 @@ if node.metadata.get('yum', {}).get('auto_downloads', False):
         'group': "root",
         'content_type': "mako",
         'needs': [
-            "pkg_yum:yum-cron",
+            "pkg_dnf:yum-cron",
         ],
     }
 
 for package in node.metadata.get('yum', {}).get('extra_packages', {}):
-    pkg_yum['{}'.format(package)] = {}
+    pkg_dnf['{}'.format(package)] = {}
