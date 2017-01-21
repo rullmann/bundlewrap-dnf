@@ -1,3 +1,5 @@
+pkg_dnf = {}
+
 actions = {
     'dnf_makecache': {
         'command': "dnf makecache",
