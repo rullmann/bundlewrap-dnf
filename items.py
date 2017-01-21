@@ -1,7 +1,3 @@
-pkg_dnf = {
-    "yum": {},
-}
-
 actions = {
     'dnf_makecache': {
         'command': "dnf makecache",
