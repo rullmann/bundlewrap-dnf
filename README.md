@@ -3,15 +3,6 @@
 `bundlewrap-dnf` installs `dnf`, removes unnecessary default repo lists and optionally sets up automatic download and updates of packages.
 Beside that the bundle provides an action to update the dnf metadata cache which can be used by other bundles whenever a repo list is being modified.
 
-## Compatibility
-
-This bundle has been tested on the following systems:
-
-| OS          | `[x]` |
-| ----------- | ----- |
-| Fedora 24   | `[x]` |
-| Fedberry 24 | `[x]` |
-
 ## Metadata
 
     'metadata': {
