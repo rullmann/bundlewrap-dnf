@@ -14,7 +14,6 @@ if node.metadata.get('dnf', {}).get('auto_downloads', False):
 
     svc_systemd = {
         'yum-cron': {
-            'enabled': True,
             'needs': [
                 "pkg_dnf:yum-cron",
             ],
@@ -24,8 +23,6 @@ if node.metadata.get('dnf', {}).get('auto_downloads', False):
     files['/etc/yum/yum-cron.conf'] = {
         'source': "yum-cron.conf",
         'mode': "0644",
-        'owner': "root",
-        'group': "root",
         'content_type': "mako",
         'needs': [
             "pkg_dnf:yum-cron",
@@ -35,8 +32,6 @@ if node.metadata.get('dnf', {}).get('auto_downloads', False):
     files['/etc/yum/yum-cron-hourly.conf'] = {
         'source': "yum-cron-hourly.conf",
         'mode': "0644",
-        'owner': "root",
-        'group': "root",
         'content_type': "mako",
         'needs': [
             "pkg_dnf:yum-cron",
