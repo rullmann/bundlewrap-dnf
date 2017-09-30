@@ -2,7 +2,7 @@ pkg_dnf = {}
 
 actions = {
     'dnf_makecache': {
-        'command': "dnf makecache",
+        'command': 'dnf makecache',
         'triggered': True,
     },
 }
@@ -15,26 +15,26 @@ if node.metadata.get('dnf', {}).get('auto_downloads', False):
     svc_systemd = {
         'yum-cron': {
             'needs': [
-                "pkg_dnf:yum-cron",
+                'pkg_dnf:yum-cron',
             ],
         },
     }
 
     files['/etc/yum/yum-cron.conf'] = {
-        'source': "yum-cron.conf",
-        'mode': "0644",
-        'content_type': "mako",
+        'source': 'yum-cron.conf',
+        'mode': '0644',
+        'content_type': 'mako',
         'needs': [
-            "pkg_dnf:yum-cron",
+            'pkg_dnf:yum-cron',
         ],
     }
 
     files['/etc/yum/yum-cron-hourly.conf'] = {
-        'source': "yum-cron-hourly.conf",
-        'mode': "0644",
-        'content_type': "mako",
+        'source': 'yum-cron-hourly.conf',
+        'mode': '0644',
+        'content_type': 'mako',
         'needs': [
-            "pkg_dnf:yum-cron",
+            'pkg_dnf:yum-cron',
         ],
     }
 
