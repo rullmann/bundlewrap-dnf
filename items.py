@@ -7,7 +7,12 @@ actions = {
     },
 }
 
-files = {}
+files = {
+    '/etc/dnf/dnf.conf': {
+        'source': 'dnf.conf',
+        'mode': '0644',
+    },
+}
 
 if node.metadata.get('dnf', {}).get('auto_downloads', False):
     pkg_dnf['yum-cron'] = {}
