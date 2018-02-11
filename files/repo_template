@@ -1,0 +1,8 @@
+[${repo_id}]
+name = ${repo_items.get('name', repo_id)}
+baseurl = ${repo_items['baseurl']}
+enabled = ${repo_items.get('enabled', '1')}
+gpgcheck = ${repo_items.get('gpg_check', '1')}
+% if repo_items.get('gpgkey', {}):
+gpgkey = ${repo_items['gpgkey']}
+% endif

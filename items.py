@@ -39,3 +39,15 @@ if node.metadata.get('dnf', {}).get('auto_downloads', False):
 
 for package in node.metadata.get('dnf', {}).get('extra_packages', {}):
     pkg_dnf['{}'.format(package)] = {}
+
+for repo_id, repo in sorted(node.metadata.get('dnf', {}).get('repositories', {}).items()):
+    files['/etc/yum.repos.d/{}.repo'.format(repo_id)] = {
+        'content_type': 'mako',
+        'source': 'repo_template',
+        'mode': '0644',
+        'context': {
+            'repo_items': repo,
+            'repo_id': repo_id,
+        },
+        'triggers': ['action:dnf_makecache'],
+    }
