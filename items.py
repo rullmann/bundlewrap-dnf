@@ -40,6 +40,11 @@ if node.metadata.get('dnf', {}).get('auto_downloads', False):
 for package in node.metadata.get('dnf', {}).get('extra_packages', {}):
     pkg_dnf['{}'.format(package)] = {}
 
+for package in node.metadata.get('dnf', {}).get('remove_extra_packages', {}):
+    pkg_dnf['{}'.format(package)] = {
+        'installed': False,
+    }
+
 for repo_id, repo in sorted(node.metadata.get('dnf', {}).get('repositories', {}).items()):
     files['/etc/yum.repos.d/{}.repo'.format(repo_id)] = {
         'content_type': 'mako',

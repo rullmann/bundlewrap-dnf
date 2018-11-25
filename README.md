@@ -12,6 +12,7 @@ Beside that the bundle provides an action to update the dnf metadata cache which
             'update_cmd': 'default', # define which updates will be installed, e.g. 'security'
             'send_mails': True, # send emails for yum-cron actions, defaults to False
             'extra_packages': ['git-email'], # optional, installs any given package with dnf
+            'remove_extra_packages': ['fedora-release-notes'], # optional, remove any packages with dnf
             'repositories': { # optional, add additional repositories, e.g. for usage in metadata.py
                 'influxdb': { # example repo_id in this case
                     'name': 'InfluxDB Repository - RHEL 7', # optional, if not set repo_id will be used
